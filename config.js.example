@@ -1,0 +1,30 @@
+require('dotenv').config()
+module.exports = {
+    prefix: process.env.PREFIX,
+    token: process.env.TOKEN,
+    mongo_uri: process.env.MONGO_URI,
+    owner: [''],
+    options: {
+        firstShardID: 0,
+        maxShards: parseInt(process.env.SHARD_COUNT),
+        defaultImageSize: 2048,
+        defaultImageFormat: 'png',
+        getAllUsers: true,
+        intents: [
+            'guilds',
+            'guildMembers',
+            'guildIntegrations',
+            'guildMessages',
+            'guildMessageReactions',
+            'directMessages',
+            'directMessageReactions'
+        ]
+    },
+    boosterInfo: {
+        guildID: '',
+        channelID: '',
+        donateRoleID: '',
+        boostRoleID: '',
+        value: 20000
+    }
+}

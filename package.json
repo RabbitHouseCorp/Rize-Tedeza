@@ -1,0 +1,23 @@
+{
+  "name": "rize-tedeza",
+  "version": "1.2.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/RabbitHouseCorp/Rize-Tedeza"
+  },
+  "author": "DanielaGC_",
+  "license": "AGPL-3.0",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "eris": "^0.14.0",
+    "mongoose": "^5.10.15"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0"
+  }
+}
