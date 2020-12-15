@@ -8,6 +8,7 @@ module.exports = class GuildMemberUpdateListener extends EventListener {
     async run(client, guild, member, oldMember) {
 
         if (guild.id === boosterInfo.guildID) {
+            if (guild.premiumSubscriptionCount >= 40) return
             if (member.roles.includes(boosterInfo.boostRoleID)) {
                 if (!member.roles.includes(boosterInfo.donateRoleID)) {
                     let user = await client.db.users.getOrCreate(member.user.id)
@@ -18,6 +19,8 @@ module.exports = class GuildMemberUpdateListener extends EventListener {
                     embed.setColor(Colors['default'])
                     embed.setAuthor(`${member.user.username}#${member.user.discriminator} thank you!`, member.user.dynamicAvatarURL())
                     embed.setDescription(`${member.user.mention} boosted \`${guild.name}\`. Thank you very much! I added ${Number(boosterInfo.value).toLocaleString()} yens into your account as a reward for boosting. Enjoy and call your friend to chat with us. Again: thanks.`)
+                    embed.setThumbnail(member.user.dynamicAvatarURL())
+
                     member.addRole(boosterInfo.donateRoleID).then(() => {
                         guild.channels.get(boosterInfo.channelID).createMessage(embed.build(member.user.mention))
                         member.user.getDMChannel().then(channel => {
