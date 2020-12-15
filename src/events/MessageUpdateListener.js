@@ -8,6 +8,6 @@ module.exports = class MessageUpdateListener extends EventListener {
     run(client, message, oldMessage) {
         if (message?.content === oldMessage?.content) return
 
-        client.emit('messageUpdate', message)
+        client.emit('messageCreate', message)
     }
 }
