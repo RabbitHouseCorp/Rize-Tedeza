@@ -6,7 +6,7 @@ module.exports = class ErrorListener extends EventListener {
     }
 
     run(client, err, shardID) {
-        Logger.error(`An error has been ocorred in shard ${shardID}: ${err.message}`)
+        Logger.error(`An error has been ocorred in shard ${shardID}: ${err?.message}`)
         client.shards.get(shardID).connect
     }
 }
