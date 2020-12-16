@@ -6,6 +6,6 @@ module.exports = class ShardDisconnectListener extends EventListener {
     }
 
     run(client, err, shardID) {
-        Logger.error(`An error has been ocorred in shard ${shardID}: ${err.message}`)
+        Logger.error(`An error has been ocorred in shard ${shardID}: ${err?.message}`)
     }
 }
