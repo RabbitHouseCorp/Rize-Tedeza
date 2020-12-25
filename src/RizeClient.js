@@ -32,7 +32,7 @@ module.exports = class RizeClient extends Client {
                     const command = new Command()
                     this.commands.set(command.config.name, command)
                     Logger.log(`Loaded command: ${command.config.name}`)
-                    command.config.aliases.forEach((alias) => this.aliases.et(alias, command.config.name))
+                    command.config.aliases.forEach((alias) => this.aliases.set(alias, command.config.name))
                 })
             })
         })

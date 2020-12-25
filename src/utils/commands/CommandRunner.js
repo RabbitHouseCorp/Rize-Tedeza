@@ -1,5 +1,6 @@
 const CommandContext = require('./CommandContext')
 const config = require('../../../config')
+const { EmbedBuilder, Colors } = require('../')
 module.exports = class CommandRunner {
     static async run(client, message) {
         if (message.author.bot) return
@@ -18,10 +19,14 @@ module.exports = class CommandRunner {
             }
         })
         message.channel.sendTyping()
-        if (command.config.dev && !config.owner.includes(message.author.id)) return ctx.send({
-            title: 'Missing permission',
-            description: 'You\'re not one of my developers.'
-        })
+        if (command.config.dev && !config.owner.includes(message.author.id)) {
+            const embed = new EmbedBuilder()
+            embed.setColor(Colors['default'])
+            embed.setTitle('Missing permission')
+            embed.setDescription('You\'re not one of my developers.')
+
+            ctx.send(embed.build())
+        }
 
         command.run(ctx)
     }

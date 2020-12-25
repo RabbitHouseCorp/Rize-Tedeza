@@ -1,4 +1,4 @@
 module.exports = {
-    default: '#9567d6',
+    default: '#bf6fe7',
     error: '#d45353'
 }
