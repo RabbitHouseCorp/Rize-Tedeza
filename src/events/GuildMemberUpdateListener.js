@@ -8,7 +8,7 @@ module.exports = class GuildMemberUpdateListener extends EventListener {
     async run(client, guild, member, oldMember) {
 
         if (guild.id === boosterInfo.guildID) {
-            if (guild.premiumSubscriptionCount >= 40) return
+            if (guild.premiumSubscriptionCount > 40) return
             if (member.roles.includes(boosterInfo.boostRoleID)) {
                 if (!member.roles.includes(boosterInfo.donateRoleID)) {
                     let user = await client.db.users.getOrCreate(member.user.id)
