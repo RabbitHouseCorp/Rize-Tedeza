@@ -1,6 +1,7 @@
 const CommandContext = require('./CommandContext')
 const config = require('../../../config')
-const { EmbedBuilder, Colors } = require('../')
+const Colors = require('../Colors')
+const EmbedBuilder = require('../EmbedBuilder')
 module.exports = class CommandRunner {
     static async run(client, message) {
         if (message.author.bot) return
@@ -26,6 +27,7 @@ module.exports = class CommandRunner {
             embed.setDescription('You\'re not one of my developers.')
 
             ctx.send(embed.build())
+            return
         }
 
         command.run(ctx)
