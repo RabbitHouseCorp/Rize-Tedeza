@@ -24,7 +24,9 @@ module.exports = class GuildMemberUpdateListener extends EventListener {
                     member.addRole(boosterInfo.donateRoleID).then(() => {
                         guild.channels.get(boosterInfo.channelID).createMessage(embed.build(member.user.mention))
                         member.user.getDMChannel().then(channel => {
-                            channel.createMessage(`Hey ${member.user.mention}, thanks for boosting the \`${guild.name}\`, I added **${Number(boosterInfo.value).toLocaleString()}** yens into your account.`)
+                            channel.createMessage(`Hey ${member.user.mention}, thanks for boosting the \`${guild.name}\`, I added **${Number(boosterInfo.value).toLocaleString()}** yens into your account.`).catch((err) => {
+                                Logger.error(`The direct message of ${member.user.username}#${member.user.discriminator} has been closed.`)
+                            })
                         }).catch((err) => {
                             Logger.error(`The direct message of ${member.user.username}#${member.user.discriminator} has been closed.`)
                         })
