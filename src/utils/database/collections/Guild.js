@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const Guild = new mongoose.Schema({
-    _id: { type: String },
+    id: { type: String },
     prefix: { type: String, default: process.env.PREFIX },
     channelReport: { type: String, default: '' },
     reportModule: { type: Boolean, default: false },

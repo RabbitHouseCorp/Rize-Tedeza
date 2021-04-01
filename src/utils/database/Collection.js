@@ -10,7 +10,7 @@ module.exports = class Collection {
      */
 
     findOneById(id) {
-        return this.findOne({ _id: id })
+        return this.findOne({ id })
     }
 
     /**
@@ -32,7 +32,7 @@ module.exports = class Collection {
     async getOrCreate(id, defaultValues = {}) {
         const data = await this.findOneById(id)
         if (!data) {
-            this.model({ _id: id, ...defaultValues }).save()
+            this.model({ id, ...defaultValues }).save()
         }
         return data
     }

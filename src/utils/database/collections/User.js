@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const User = new mongoose.Schema({
-    _id: { type: String },
+    id: { type: String },
     yens: { type: Number, default: 0 },
     timeDaily: { type: String, default: '000000000000' },
     afk: { type: Boolean, default: false },
