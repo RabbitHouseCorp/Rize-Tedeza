@@ -1,13 +1,13 @@
 const { EventListener } = require('../utils')
 
 module.exports = class MessageUpdateListener extends EventListener {
-    constructor() {
-        super('messageUpdate')
-    }
+  constructor() {
+    super('messageUpdate')
+  }
 
-    run(client, message, oldMessage) {
-        if (message?.content === oldMessage?.content) return
+  run(client, message, oldMessage) {
+    if (message?.content === oldMessage?.content) return
 
-        client.emit('messageCreate', message)
-    }
+    client.emit('messageCreate', message)
+  }
 }
