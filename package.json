@@ -15,7 +15,7 @@
   "dependencies": {
     "chalk": "^4.1.0",
     "eris": "^0.15.0",
-    "mongoose": "^5.10.15"
+    "mongoose": "^6.0.1"
   },
   "devDependencies": {
     "dotenv": "^10.0.0"
