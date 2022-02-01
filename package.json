@@ -14,7 +14,7 @@
   "license": "AGPL-3.0",
   "dependencies": {
     "chalk": "^4.1.0",
-    "eris": "^0.15.0",
+    "eris": "^0.16.1",
     "mongoose": "^6.0.2"
   },
   "devDependencies": {
